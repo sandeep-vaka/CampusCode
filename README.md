@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # CampusCode
 
 CampusCode is a student-focused campus coding and hackathon website built with React and Vite. It presents a landing page for a hackathon "arena", lets visitors browse sample hackathons, and includes demo sign-up, login and dashboard pages.
@@ -235,4 +234,4 @@ Login accepts any email and password (labelled "Demo mode"). "Use demo account" 
 ## Layout
 
 `src/components` sections and UI parts, `src/pages` routes, `src/context` mock session/state, `src/data/mockData.js` all sample content, `src/hooks` form, title and cursor-glow hooks, `src/lib` validation, storage and motion helpers, `src/styles` tokens and animations. `docs/reference/landing-original.css` holds the original landing values the design follows. Project history and decisions: `CHECKPOINT.md` and `docs/FINAL-REPORT.md`.
->>>>>>> 71d9acc (First commit!)
+
