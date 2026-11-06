@@ -1,0 +1,92 @@
+@import "tailwindcss";
+
+/* Design tokens: values taken from the original site's stylesheet (light theme). */
+:root {
+  --bg: #f7f7f4;
+  --surface: #ffffff;
+  --surface-soft: #f0f0ec;
+  --text: #111111;
+  --text-soft: #4f4f4b;
+  --muted: #858580;
+  --border: #deded8;
+  --border-dark: #cfcfc8;
+  --lime: #a8e62e;
+  --lime-dark: #82b91a;
+  --purple: #7665ff;
+  --blue: #526eff;
+
+  --shadow-card: 0 1px 2px rgb(17 17 17 / 0.04), 0 8px 24px rgb(17 17 17 / 0.05);
+  --glow-purple: radial-gradient(circle, rgb(118 101 255 / 0.12), transparent 68%);
+
+  --radius-sm: 4px;
+  --radius-md: 12px;
+  --radius-pill: 999px;
+
+  --space-section: clamp(80px, 12vw, 160px);
+  --gutter: 5vw;
+
+  --dur-fast: 0.2s;
+  --dur-base: 0.5s;
+  --dur-slow: 0.9s;
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+
+  --font-sans: Inter, system-ui, sans-serif;
+  --font-mono: "DM Mono", ui-monospace, monospace;
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-ink: var(--text);
+  --color-soft: var(--text-soft);
+  --color-muted: var(--muted);
+  --color-line: var(--border);
+  --color-lime: var(--lime);
+  --color-lime-dark: var(--lime-dark);
+  --color-brand: var(--purple);
+  --font-sans: var(--font-sans);
+  --font-mono: var(--font-mono);
+}
+
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+@layer base {
+  button { font-family: inherit; cursor: pointer; }
+  a { color: inherit; }
+  main:focus { outline: none; }
+  :focus-visible { outline: 2px solid var(--purple); outline-offset: 3px; }
+}
+
+.mono-label {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.display {
+  font-weight: 900;
+  letter-spacing: -0.05em;
+  line-height: 0.88;
+  text-transform: uppercase;
+}
+.display-outline {
+  color: transparent;
+  -webkit-text-stroke: 1px #555;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+}
+
+/* Invisible 44px hit area for inline text links (no layout change). */
+.tap { position: relative; }
+.tap::after { content: ""; position: absolute; left: 50%; top: 50%; width: max(100%, 44px); height: max(100%, 44px); transform: translate(-50%, -50%); }

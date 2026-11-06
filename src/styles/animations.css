@@ -1,0 +1,61 @@
+/* Keyframes added in Phase 4. */
+@keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+@keyframes networkMove { to { stroke-dashoffset: -240px; } }
+@keyframes nodePulse {
+  0%, 100% { opacity: 0.3; transform: scale(0.85); }
+  50% { opacity: 1; transform: scale(1.2); }
+}
+@keyframes scrollLine {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(400%); }
+}
+
+.hero-network path {
+  fill: none;
+  stroke: rgb(80 90 160 / 0.2);
+  stroke-width: 1;
+  stroke-dasharray: 7 10;
+  animation: networkMove 15s linear infinite;
+}
+.hero-network circle {
+  fill: var(--purple);
+  filter: drop-shadow(0 0 7px rgb(118 101 255 / 0.55));
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: nodePulse 2.5s ease-in-out infinite;
+}
+.hero-grid {
+  background-image:
+    linear-gradient(rgb(20 20 20 / 0.055) 1px, transparent 1px),
+    linear-gradient(90deg, rgb(20 20 20 / 0.055) 1px, transparent 1px);
+  background-size: 70px 70px;
+  -webkit-mask-image: linear-gradient(#000, rgb(0 0 0 / 0.4), transparent);
+  mask-image: linear-gradient(#000, rgb(0 0 0 / 0.4), transparent);
+}
+.hero-outline {
+  color: transparent;
+  -webkit-text-stroke: 1px #777;
+  transition: color 0.4s, -webkit-text-stroke-color 0.4s;
+}
+.hero-outline:hover {
+  color: var(--purple);
+  -webkit-text-stroke-color: var(--purple);
+}
+.scroll-line { animation: scrollLine 2s ease-in-out infinite; }
+
+@keyframes orbit { to { transform: rotate(360deg); } }
+@keyframes orbitReverse { to { transform: rotate(-360deg); } }
+.orbit { animation: orbit 20s linear infinite; }
+.orbit-rev { animation: orbitReverse 14s linear infinite; }
+.marquee-track { display: inline-flex; align-items: center; gap: 30px; animation: marquee 28s linear infinite; }
+.marquee:hover .marquee-track { animation-play-state: paused; }
+.grid-bg {
+  background-image:
+    linear-gradient(rgb(0 0 0 / 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgb(0 0 0 / 0.04) 1px, transparent 1px);
+}
+.font-condensed { font-family: Anton, Impact, "Arial Narrow", sans-serif; letter-spacing: 0; }
+.link-underline { position: relative; }
+.link-underline::after { content: ""; position: absolute; left: 0; bottom: -3px; width: 0; height: 1px; background: #3e37d9; transition: width 0.25s; }
+.link-underline:hover::after { width: 100%; }
